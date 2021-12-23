@@ -7,15 +7,19 @@
 
 \f0\fs24 \cf0 Sub AllStockAnalysis()\
      \
+    'making the analysis year dynamic\
+    Dim yearValue As String\
+    yearValue = InputBox("What year would you like to run the analysis on?")\
+    \
     Worksheets("All Stocks Analysis").Activate\
     \
     'Labeling worksheet and columns\
-    Range("A1").Value = "All Stock (2018)"\
+    Range("A1").Value = "All Stock (" + yearValue + ")"\
     Range("A3").Value = "Ticker"\
     Range("B3").Value = "Total Daily Volume"\
     Range("C3").Value = "Return"\
     \
-    Worksheets("2018").Activate\
+    Worksheets(\'93\'94 + yearValue + \'93\'94).Activate\
     \
     'Setting boundaries\
     Dim rowStart As Long\
@@ -52,7 +56,7 @@
         Dim endingPrice As Double\
             \
         'Switch back to data on each iteration\
-        Worksheets("2018").Activate\
+        Worksheets(\'93\'94 + yearValue + \'93\'94).Activate\
         \
             For j = rowStart To rowEnd\
             \
