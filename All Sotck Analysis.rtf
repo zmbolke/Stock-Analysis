@@ -72,6 +72,15 @@
     Cells(4 + i, 2).Value = totalVolume\
     Cells(4 + i, 3).Value = (endingPrice / startingPrice) - 1\
     \
+    'Conditional formatting based on gain/loss in stock price\
+    If Cells(4 + i, 3).Value > 0 Then\
+    Cells(4 + i, 3).Interior.Color = vbGreen\
+    ElseIf Cells(4 + i, 3).Value < 0 Then\
+    Cells(4 + i, 3).Interior.Color = vbRed\
+    Else: Cells(4 + i, 3).Interior.Color = Clear\
+    End If\
+    \
+    \
     Next i\
 \
    'Formatting the summary page\
@@ -86,4 +95,8 @@
    \
     \
     \
-End Sub}
+End Sub\
+\
+\
+\
+}
