@@ -74,8 +74,16 @@
     \
     Next i\
 \
+   'Formatting the summary page\
+   Worksheets("All Stocks Analysis").Activate\
+   Range("A1:C3").Font.FontStyle = "Bold"\
+   Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous\
+   Range("C:C").NumberFormat = "0.0%"\
+   Range("B:B").NumberFormat = "#,##0"\
+   Columns("A").AutoFit\
+   Columns("B").AutoFit\
+   \
+   \
     \
     \
-    \
-End Sub\
-}
+End Sub}
