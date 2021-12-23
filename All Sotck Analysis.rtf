@@ -7,9 +7,15 @@
 
 \f0\fs24 \cf0 Sub AllStockAnalysis()\
      \
+    \
     'making the analysis year dynamic\
     Dim yearValue As String\
     yearValue = InputBox("What year would you like to run the analysis on?")\
+    \
+    'Starting Timer\
+    Dim startTimer As Single\
+    Dim endTime As Single\
+    startTimer = Timer\
     \
     Worksheets("All Stocks Analysis").Activate\
     \
@@ -92,15 +98,19 @@
     \
     \
     Next i\
-\
-   'Formatting the summary page\
-   Worksheets("All Stocks Analysis").Activate\
-   Range("A1:C3").Font.FontStyle = "Bold"\
-   Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous\
-   Range("C:C").NumberFormat = "0.0%"\
-   Range("B:B").NumberFormat = "#,##0"\
-   Columns("A").AutoFit\
-   Columns("B").AutoFit\
+    \
+    'End Timer\
+    endTimer = Timer\
+    MsgBox "This code ran in " & (endTimer - startTimer) & " seconds for the year " & (yearValue)\
+    \
+    'Formatting the summary page\
+    Worksheets("All Stocks Analysis").Activate\
+    Range("A1:C3").Font.FontStyle = "Bold"\
+    Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous\
+    Range("C:C").NumberFormat = "0.0%"\
+    Range("B:B").NumberFormat = "#,##0"\
+    Columns("A").AutoFit\
+    Columns("B").AutoFit\
    \
    \
     \
@@ -113,6 +123,7 @@ Worksheets("All Stocks Analysis").Activate\
 Cells.Clear\
 \
 End Sub\
+\
 \
 \
 }
