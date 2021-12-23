@@ -23,7 +23,7 @@
     rowStart = 2\
     'https://excel.officetuts.net/vba/count-rows-in-excel-vba/\
     rowEnd = Cells(Rows.Count, 1).End(xlUp).Row\
-    MsgBox (rowEnd)\
+    'MsgBox (rowEnd)\
     \
     'Defining Array\
     \
@@ -101,6 +101,13 @@
    \
     \
     \
+End Sub\
+\
+Sub Clearing()\
+\
+Worksheets("All Stocks Analysis").Activate\
+Cells.Clear\
+\
 End Sub\
 \
 \
