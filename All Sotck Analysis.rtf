@@ -17,6 +17,14 @@
     \
     Worksheets("2018").Activate\
     \
+    'Setting boundaries\
+    Dim rowStart As Long\
+    Dim rowEnd As Long\
+    rowStart = 2\
+    'https://excel.officetuts.net/vba/count-rows-in-excel-vba/\
+    rowEnd = Cells(Rows.Count, 1).End(xlUp).Row\
+    MsgBox (rowEnd)\
+    \
     'Defining Array\
     \
     Dim tickers(11) As String\
@@ -39,8 +47,6 @@
     \
         'reset ticker, and totalVolume\
         ticker = tickers(i)\
-        rowStart = 2\
-        rowEnd = 3013\
         totalVolume = 0\
         Dim startingPrice As Double\
         Dim endingPrice As Double\
@@ -96,7 +102,6 @@
     \
     \
 End Sub\
-\
 \
 \
 }
