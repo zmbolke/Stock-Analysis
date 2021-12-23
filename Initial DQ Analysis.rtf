@@ -53,13 +53,30 @@ Sub DQAnalysis()\
     Cells(3, 2).Value = "Total Daily Volume"\
     Cells(3, 3).Value = "Return"\
     \
+    \
     Worksheets("2018").Activate\
     \
-    For i = 1 To 8\
-        MsgBox (Cells(1, i))\
+    rowStart = 2\
+    rowEnd = 3013\
+    totalVolume = 0\
+    \
+    For i = rowStart To rowEnd\
+    \
+    'Increase totalVolume if tickeris "DQ"\
+    If Cells(i, 1).Value = "DQ" Then\
+      \
+    totalVolume = totalVolume + Cells(i, 8).Value\
         \
+    End If\
+      \
     Next i\
 \
-End Sub\
+    'MsgBox (totalVolume)\
+    \
+    Worksheets("DQ Analysis").Activate\
+    Cells(4, 1).Value = 2018\
+    Cells(4, 2).Value = totalVolume\
+    \
 \
+End Sub\
 }
