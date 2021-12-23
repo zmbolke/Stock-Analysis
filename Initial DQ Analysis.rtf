@@ -5,7 +5,9 @@
 \margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Dim testmessage As String\
+\f0\fs24 \cf0 Sub macroCheck()\
+\
+Dim testmessage As String\
 \
 testmessage = "Hello World"\
 MsgBox (testmessage)\
@@ -13,19 +15,7 @@ MsgBox (testmessage)\
 \
 End Sub\
 \
-Sub DQAnalysis()\
 \
-    Worksheets("DQ Analysis").Activate\
-    \
-    Range("A1").Value = "DAQO (Ticker: DQ)"\
-    \
-    'Create a header row\
-    \
-    Cells(3, 1).Value = "Year"\
-    Cells(3, 2).Value = "Total Daily Volume"\
-    Cells(3, 3).Value = "Return"\
-    \
-End Sub\
 \
 Sub DQACO()\
 \
@@ -50,5 +40,26 @@ Sub DQARO()\
     Range("C3").Value = "Return"\
     \
 End Sub\
+\
+Sub DQAnalysis()\
+\
+    Worksheets("DQ Analysis").Activate\
+    \
+    Range("A1").Value = "DAQO (Ticker: DQ)"\
+    \
+    'Create a header row\
+    \
+    Cells(3, 1).Value = "Year"\
+    Cells(3, 2).Value = "Total Daily Volume"\
+    Cells(3, 3).Value = "Return"\
+    \
+    Worksheets("2018").Activate\
+    \
+    For i = 1 To 8\
+        MsgBox (Cells(1, i))\
+        \
+    Next i\
+\
+End Sub\
 \
 }
