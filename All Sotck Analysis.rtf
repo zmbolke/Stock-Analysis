@@ -28,8 +28,8 @@
     Worksheets(\'93\'94 + yearValue + \'93\'94).Activate\
     \
     'Setting boundaries\
-    Dim rowStart As Long\
-    Dim rowEnd As Long\
+    Dim rowStart As Integer\
+    Dim rowEnd As Integer\
     rowStart = 2\
     'https://excel.officetuts.net/vba/count-rows-in-excel-vba/\
     rowEnd = Cells(Rows.Count, 1).End(xlUp).Row\
@@ -82,7 +82,7 @@
            \
            Next j\
            \
-    'Switch tosummary sheet\
+    'Switch to summary sheet\
     Worksheets("All Stocks Analysis").Activate\
     Cells(4 + i, 1).Value = ticker\
     Cells(4 + i, 2).Value = totalVolume\
@@ -99,12 +99,13 @@
     \
     Next i\
     \
-    'End Timer\
-    endTimer = Timer\
-    MsgBox "This code ran in " & (endTimer - startTimer) & " seconds for the year " & (yearValue)\
+    'Labeling worksheet and columns\
+    Range("A1").Value = "All Stock (" + yearValue + ")"\
+    Range("A3").Value = "Ticker"\
+    Range("B3").Value = "Total Daily Volume"\
+    Range("C3").Value = "Return"\
     \
     'Formatting the summary page\
-    Worksheets("All Stocks Analysis").Activate\
     Range("A1:C3").Font.FontStyle = "Bold"\
     Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous\
     Range("C:C").NumberFormat = "0.0%"\
@@ -112,7 +113,9 @@
     Columns("A").AutoFit\
     Columns("B").AutoFit\
    \
-   \
+   'End Timer\
+    endTimer = Timer\
+    MsgBox "This code ran in " & (endTimer - startTimer) & " seconds for the year " & (yearValue)\
     \
     \
 End Sub\
@@ -123,7 +126,5 @@ Worksheets("All Stocks Analysis").Activate\
 Cells.Clear\
 \
 End Sub\
-\
-\
 \
 }
